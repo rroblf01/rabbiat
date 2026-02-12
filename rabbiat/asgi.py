@@ -15,16 +15,4 @@ from starlette.applications import Starlette
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rabbiat.settings")
 
-django_app = get_asgi_application()
-
-app = Starlette()
-app.mount(
-    "/static",
-    StaticFiles(
-        directory=os.path.join(os.path.dirname(os.path.dirname(__file__)), "static")
-    ),
-    name="static",
-)
-app.mount("/", django_app)
-
-application = app
+application = get_asgi_application()
