@@ -6,6 +6,8 @@ from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.mcp import MCPServerStdio
 from pydantic_ai.providers.ollama import OllamaProvider
 from pydantic_ai.providers.openai import OpenAIProvider
+from pydantic_ai.models.google import GoogleModel
+from pydantic_ai.providers.google import GoogleProvider
 from handler.utils import (
     get_structure_tool_classes,
     get_structure_tool_class,
@@ -38,25 +40,32 @@ class AIModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def get_provider(self):
-        providers = {
-            "ollama": OllamaProvider(base_url=settings.PROVIDER_AI_URL),
-            "openai": OpenAIProvider(api_key=settings.OPENAI_API_KEY),
-        }
-
-        if provider := providers.get(self.family):
-            return provider
 
         raise NotImplementedError(
             f"Provider for family '{self.family}' is not implemented."
         )
 
     async def get_ai_model(self):
-        if self.family != "ollama":
-            raise NotImplementedError("OpenAI models are not implemented yet.")
+        chat_models = {
+            "ollama": OpenAIChatModel(
+                model_name=self.name,
+                provider=OllamaProvider(base_url=settings.PROVIDER_AI_URL),
+            ),
+            "openai": OpenAIChatModel(
+                model_name=self.name,
+                provider=OpenAIProvider(api_key=settings.OPENAI_API_KEY),
+            ),
+            "google": GoogleModel(
+                model_name=self.name,
+                provider=GoogleProvider(api_key=settings.GOOGLE_API_KEY),
+            ),
+        }
 
-        return OpenAIChatModel(
-            model_name=self.name,
-            provider=OllamaProvider(base_url=settings.PROVIDER_AI_URL),
+        if chat_model := chat_models.get(self.family):
+            return chat_model
+
+        raise NotImplementedError(
+            f"AI model for family '{self.family}' is not implemented."
         )
 
     def __str__(self):

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --bg-sidebar: #f9fafb;
+            --bg-content: #ffffff;
+            --border-color: #e5e7eb;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-content);
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: var(--bg-sidebar);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-muted);
+        }
+
+        .form-group input {
+            display: block;
+            margin: 0 auto;
+            width: 90%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .login-button {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .login-button:hover {
+            background: #4338ca;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form method="post" action="{% url 'login' %}?">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            {% if form.errors %}
+            <div class="error-message">
+                Usuario o contraseña incorrectos.
+            </div>
+            {% endif %}
+            <button type="submit" class="login-button">Entrar</button>
+        </form>
+    </div>
+</body>
+
+</html>

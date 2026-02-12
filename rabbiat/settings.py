@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 import os
 from pathlib import Path
+from urllib.parse import urlparse, parse_qsl
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-tubt8!u=fdk6)r7!3(&_b76i&hp6zl4*n!k-wah_h-d3-1gw@c"
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DJANGO_DEBUG", "true").lower() == "true"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -77,12 +79,26 @@ ASGI_APPLICATION = "rabbiat.asgi.application"
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+if DEBUG:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
-}
+else:
+    tmpPostgres = urlparse(os.getenv("INTEGRATE_DATABASE_URL"))
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": tmpPostgres.path.replace("/", ""),
+            "USER": tmpPostgres.username,
+            "PASSWORD": tmpPostgres.password,
+            "HOST": tmpPostgres.hostname,
+            "PORT": tmpPostgres.port,
+            "OPTIONS": dict(parse_qsl(tmpPostgres.query)),
+        }
+    }
 
 
 # Password validation
@@ -123,3 +139,4 @@ STATIC_URL = "static/"
 
 PROVIDER_AI_URL = os.getenv("PROVIDER_AI_URL", "http://localhost:1234/v1")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "openai-api-key-placeholder")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "google-api-key-placeholder")

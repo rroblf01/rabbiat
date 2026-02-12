@@ -224,6 +224,13 @@
         </div>
     </div>
 
+    {% if user.is_authenticated %}
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Cerrar sesión</button>
+    </form>
+    {% endif %}
+
     <script>
         function selectPrompt(element) {
             document.querySelectorAll('.prompt-item').forEach(el => el.classList.remove('selected'));

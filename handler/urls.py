@@ -3,4 +3,6 @@ from . import views
 
 urlpatterns = [
     path("", views.PromptInterfaceView.as_view(), name="prompt_list"),
+    path("login/", views.UserLoginView.as_view(), name="login"),
+    path("logout/", views.UserLogoutView.as_view(), name="logout"),
 ]
