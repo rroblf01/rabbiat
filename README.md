@@ -101,4 +101,4 @@ Por motivos de la prueba, este proyecto soporta únicamente los siguientes prove
 Este proyecto es una prueba de concepto y no está diseñado para producción. Sin embargo, las contribuciones son bienvenidas. Si deseas contribuir, por favor abre un issue o envía un pull request.
 
 ## Vista previa
-![Vista previa de la interfaz web](rabbiat.webp)
+![Vista previa de la interfaz web](static/image.webp)
