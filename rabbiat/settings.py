@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DJANGO_DEBUG", "true").lower() == "true"
 
 ALLOWED_HOSTS = ["*"]
 
@@ -79,7 +79,7 @@ ASGI_APPLICATION = "rabbiat.asgi.application"
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-if DEBUG:
+if os.getenv("DJANGO_POSTGRES", "false").lower() == "false":
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
