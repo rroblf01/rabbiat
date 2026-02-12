@@ -1,0 +1,14 @@
+[project]
+name = "rabbit-ai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "daphne==4.2.1",
+    "django==6.0.2",
+    "django-extensions==4.1",
+    "ipython==9.10.0",
+    "mcp>=1.26.0",
+    "pydantic-ai-slim[mcp,openai]==1.58.0",
+]
