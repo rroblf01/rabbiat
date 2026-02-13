@@ -8,7 +8,6 @@ dependencies = [
     "daphne==4.2.1",
     "django==6.0.2",
     "django-extensions==4.1",
-    "fastapi[standard]==0.129.0",
     "ipython==9.10.0",
     "mcp==1.26.0",
     "psycopg[binary,pool]==3.3.2",
@@ -16,5 +15,3 @@ dependencies = [
     "whitenoise==6.11.0",
 ]
 
-[tool.fastapi]
-entrypoint = "rabbiat.asgi:application"
