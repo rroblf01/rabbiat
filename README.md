@@ -6,7 +6,7 @@ Rabbit AI es un proyecto de prueba de concepto desarrollado con Django ASGI que 
 
 - **Creación de Prompts**: Permite a los usuarios crear prompts personalizados.
 - **Estructuración de Respuestas**: Define la estructura de las respuestas utilizando Pydantic, asegurando validación y consistencia.
-- **Proveedores Soportados**: Actualmente, el proyecto soporta los proveedores Ollama/Lmstudio y OpenAI.
+- **Proveedores Soportados**: Actualmente, el proyecto soporta los proveedores google, Ollama/Lmstudio y OpenAI.
 - **Interfaz HTML**: Incluye una interfaz web básica para interactuar con el sistema, ubicada en el archivo `templates/index.html`.
 
 ## Tecnologías utilizadas
@@ -77,18 +77,22 @@ El proyecto está organizado de la siguiente manera:
    python manage.py migrate
    ```
 
-4. Inicia el servidor de desarrollo:
+4. Inserta las variables de entorno que se ve en el fichero settings.py
+
+
+5. Inicia el servidor de desarrollo:
 
    ```bash
    python manage.py runserver
    ```
 
-5. Accede a la interfaz web en `http://127.0.0.1:8000/`.
+6. Accede a la interfaz web en `http://127.0.0.1:8000/`.
 
 ## Proveedores soportados
 
 Por motivos de la prueba, este proyecto soporta únicamente los siguientes proveedores:
 
+- **Google**
 - **Ollama/Lmstudio**
 - **OpenAI**
 
@@ -97,4 +101,4 @@ Por motivos de la prueba, este proyecto soporta únicamente los siguientes prove
 Este proyecto es una prueba de concepto y no está diseñado para producción. Sin embargo, las contribuciones son bienvenidas. Si deseas contribuir, por favor abre un issue o envía un pull request.
 
 ## Vista previa
-![Vista previa de la interfaz web](rabbiat.webp)
+![Vista previa de la interfaz web](static/image.webp)
