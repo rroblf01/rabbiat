@@ -28,6 +28,8 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 DEBUG = os.getenv("DJANGO_DEBUG", "true").lower() == "true"
 
 ALLOWED_HOSTS = ["https://rabbiat.ricardorobles.es", "*"]
+CSRF_TRUSTED_ORIGINS = ["https://rabbiat.ricardorobles.es"]
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
 # Application definition
