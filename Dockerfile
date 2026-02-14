@@ -1,15 +1,17 @@
 FROM python:3.14.3-slim-trixie
 
+WORKDIR /app
 
-ENV WORKDIR /app
-WORKDIR $WORKDIR
-ENV PYTHONPATH "${PYTHONPATH}:${WORKDIR}"
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONPATH="/app"
 
-COPY pyproject.toml /tmp/pyproject.toml
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
 
-RUN rm /usr/local/bin/pip
-COPY --from=ghcr.io/astral-sh/uv:0.10.2-python3.14-trixie-slim /usr/local/bin/uv /usr/local/bin/uv
-RUN uv pip install --system -r /tmp/pyproject.toml
-COPY . $WORKDIR
+COPY pyproject.toml uv.lock /app/
 
-CMD ["daphne", "rabbiat.asgi:application", "--bind", "0.0.0.0", "--port", "8000"]
+RUN uv lock
+
+COPY . .
+
+CMD daphne rabbiat.asgi:application --bind 0.0.0.0 --port ${PORT:-8000}
