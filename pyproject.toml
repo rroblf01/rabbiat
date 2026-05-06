@@ -5,13 +5,13 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "daphne==4.2.1",
     "django==6.0.2",
     "django-extensions==4.1",
     "ipython==9.10.0",
     "mcp==1.26.0",
     "psycopg[binary,pool]==3.3.2",
     "pydantic-ai-slim[google,mcp,openai]==1.58.0",
+    "saltare>=1.2.0",
     "whitenoise==6.11.0",
 ]
 

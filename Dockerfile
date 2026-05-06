@@ -14,4 +14,4 @@ RUN uv pip install --system -r /app/pyproject.toml
 
 COPY . .
 
-ENTRYPOINT [ "daphne", "rabbiat.asgi:application", "--bind", "0.0.0.0", "--port", "8000" ] 
+ENTRYPOINT [ "saltare", "rabbiat.asgi:application", "--host", "0.0.0.0", "--port", "8000" ] 
