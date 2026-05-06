@@ -900,7 +900,7 @@ requires-dist = [
     { name = "mcp", specifier = "==1.26.0" },
     { name = "psycopg", extras = ["binary", "pool"], specifier = "==3.3.2" },
     { name = "pydantic-ai-slim", extras = ["google", "mcp", "openai"], specifier = "==1.58.0" },
-    { name = "saltare", specifier = ">=1.2.0" },
+    { name = "saltare", specifier = "==1.2.1" },
     { name = "whitenoise", specifier = "==6.11.0" },
 ]
 
@@ -1023,9 +1023,13 @@ wheels = [
 
 [[package]]
 name = "saltare"
-version = "1.2.0"
+version = "1.2.1"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/55/8f/cca7a2748f97b3c9808ed588b64dafff9535215017ab12c1320255fd6865/saltare-1.2.0.tar.gz", hash = "sha256:35318e83f5516336822b02af9f8c7a276fd5ba220cef080bee8a1e6584ce07ee", size = 118185, upload-time = "2026-05-06T14:07:11.922Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/97/37/3dc865e3b867dea96442305937865c81e62922007b9aa86ca5d658cc0460/saltare-1.2.1.tar.gz", hash = "sha256:df7f456e4da200eb55795986a851ed9f309f144737c62e785fd8c30b6e95f691", size = 118187, upload-time = "2026-05-06T14:26:10.23Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c9/35/ac78e43f8b570e4d84658b5bc37e309a57f6e915abdf9eae3da5d3dfc748/saltare-1.2.1-cp314-cp314-manylinux_2_28_aarch64.whl", hash = "sha256:20d301d510f76196345476a250c42bc0cecdcb7c1f47167419e29d91fec9c3aa", size = 1700377, upload-time = "2026-05-06T14:26:06.035Z" },
+    { url = "https://files.pythonhosted.org/packages/74/75/3a42d40d17f4974fa141bf5af915aac3e86d0da889b11f4c50d758c8871e/saltare-1.2.1-cp314-cp314-manylinux_2_28_x86_64.whl", hash = "sha256:8016322becddb29aa23455e82851c228a63924920c0f3d917db5360682905e6e", size = 1781372, upload-time = "2026-05-06T14:26:07.995Z" },
+]
 
 [[package]]
 name = "sniffio"
