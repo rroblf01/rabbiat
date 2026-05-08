@@ -900,7 +900,7 @@ requires-dist = [
     { name = "mcp", specifier = "==1.26.0" },
     { name = "psycopg", extras = ["binary", "pool"], specifier = "==3.3.2" },
     { name = "pydantic-ai-slim", extras = ["google", "mcp", "openai"], specifier = "==1.58.0" },
-    { name = "saltare", specifier = "==1.2.1" },
+    { name = "saltare", specifier = "==1.6.0" },
     { name = "whitenoise", specifier = "==6.11.0" },
 ]
 
@@ -1023,12 +1023,14 @@ wheels = [
 
 [[package]]
 name = "saltare"
-version = "1.2.1"
+version = "1.6.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/97/37/3dc865e3b867dea96442305937865c81e62922007b9aa86ca5d658cc0460/saltare-1.2.1.tar.gz", hash = "sha256:df7f456e4da200eb55795986a851ed9f309f144737c62e785fd8c30b6e95f691", size = 118187, upload-time = "2026-05-06T14:26:10.23Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/2d/7d/aadc57f8b57fc2a207fbbc72e7f24fb4eb31b7d2af76d540e0aed094d1f6/saltare-1.6.0.tar.gz", hash = "sha256:6ceac2ef5ec59bee7787a154bdaf49d64bd306b388aefd130fed00d365017a7c", size = 274560, upload-time = "2026-05-08T11:25:49.344Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c9/35/ac78e43f8b570e4d84658b5bc37e309a57f6e915abdf9eae3da5d3dfc748/saltare-1.2.1-cp314-cp314-manylinux_2_28_aarch64.whl", hash = "sha256:20d301d510f76196345476a250c42bc0cecdcb7c1f47167419e29d91fec9c3aa", size = 1700377, upload-time = "2026-05-06T14:26:06.035Z" },
-    { url = "https://files.pythonhosted.org/packages/74/75/3a42d40d17f4974fa141bf5af915aac3e86d0da889b11f4c50d758c8871e/saltare-1.2.1-cp314-cp314-manylinux_2_28_x86_64.whl", hash = "sha256:8016322becddb29aa23455e82851c228a63924920c0f3d917db5360682905e6e", size = 1781372, upload-time = "2026-05-06T14:26:07.995Z" },
+    { url = "https://files.pythonhosted.org/packages/cb/d1/2fea9dcdfe062aa10024e84843b975b2e7cb4cc33b726a280946a52ed3cd/saltare-1.6.0-cp314-cp314-manylinux_2_28_aarch64.whl", hash = "sha256:11357463ab7b319415092c9d98c06e061e7124fe50d4776f345343f06a415491", size = 203992, upload-time = "2026-05-08T11:25:43.141Z" },
+    { url = "https://files.pythonhosted.org/packages/7f/83/e28449e271333648d3b743e66c1e57d48fd902cacecfed70919bc5f2667a/saltare-1.6.0-cp314-cp314-manylinux_2_28_x86_64.whl", hash = "sha256:4a91b9ce037a9933fd43cc5f687975b8318c5eb1b5fefdb70cd0766a3d44b738", size = 202178, upload-time = "2026-05-08T11:25:44.572Z" },
+    { url = "https://files.pythonhosted.org/packages/1b/ab/4cc94bbc60878b846c1e5cdc307fd70784e4c1fa35945c9e42b524b9fb24/saltare-1.6.0-cp314-cp314-musllinux_1_2_aarch64.whl", hash = "sha256:28eba7adb64c5d6fff88a3aaa18453175da4d7e16160dd1ceabe099910eb28ed", size = 202836, upload-time = "2026-05-08T11:25:46.133Z" },
+    { url = "https://files.pythonhosted.org/packages/5c/06/478f1b8113aa4c34ed3e9b693d8d4bb1074aa8f39266a52947ba52b0761c/saltare-1.6.0-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:78dd2bdb6e6c9d60bfdc3a44c9553dabe8d76f1636c4b6861b16c7487d1a65a4", size = 200914, upload-time = "2026-05-08T11:25:47.885Z" },
 ]
 
 [[package]]
